@@ -13,12 +13,11 @@ import java.util.Random;
 
 public class MillionaireService
 {
-    private ServerSocket serverSocket;
     private Socket client;
 
     public void establishConnection(){
         try{
-            serverSocket= new ServerSocket(3000);
+            ServerSocket serverSocket = new ServerSocket(3000);
             client= serverSocket.accept();
             System.out.println("Client is connected");
         }

@@ -20,6 +20,8 @@ public class ServiceAction
             BufferedReader answers= new BufferedReader(new FileReader(new File("answers.txt")))){
 
             String questionData;
+            System.out.println("\nQuestions and answers: \n");
+
             while((questionData= questionAndAnswer.readLine())!= null)
             {
                 List<String> answerList= new ArrayList<>();
@@ -40,7 +42,7 @@ public class ServiceAction
                     }
                 }
                 QuestionMark questionMark= new QuestionMark(question,answer,answerList);
-                System.out.println(questionMark);
+                System.out.println(questionMark.getId()+ " "+questionMark.getQuestion()+" "+questionMark.getAnswer());
                 questionMarkMap.put(questionMark.getId(),questionMark);
             }
         }
