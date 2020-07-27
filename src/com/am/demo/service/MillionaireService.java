@@ -32,16 +32,21 @@ public class MillionaireService
             BufferedReader reader= new BufferedReader(new InputStreamReader(client.getInputStream()))){
             Map<Integer, QuestionMark> questionMarkMap= ServiceAction.populateQuestionMarkMap();
             Random random= new Random();
+            int wonPrice= 300;
             int mapCapacity= questionMarkMap.size();
             while(true){
+                StringBuilder sb= new StringBuilder();
+
                 if(questionMarkMap.isEmpty()) {
-                    writer.println("Game Over");
+                    sb.append("Game Over");
+                    sb.append("\n");
+                    sb.append("END");
+                    writer.println(sb.toString());
+                    System.out.println("End");
                     break;
                 }
                 else
                 {
-                    StringBuilder sb= new StringBuilder();
-
                     int randomNo= random.nextInt(mapCapacity);
                     if(!questionMarkMap.containsKey(randomNo))
                         continue;
@@ -58,7 +63,15 @@ public class MillionaireService
                     String incomingAnswer= reader.readLine();
                     String finalAnswer= questionMark.getPossibleAnswers().get(Integer.parseInt(incomingAnswer)-1);
                     if(questionMark.getAnswer().equals(finalAnswer)){
-                        writer.println("Congratulate");
+                        StringBuilder stringBuilder= new StringBuilder();
+                        stringBuilder.append("Congratulate");
+                        stringBuilder.append("\n");
+                        stringBuilder.append("You won: ").append(wonPrice);
+
+                        wonPrice*= 2;
+
+                        stringBuilder.append("\n");
+                        writer.println(stringBuilder.toString());
                         questionMarkMap.remove(randomNo);
                     }
                     else
@@ -73,9 +86,12 @@ public class MillionaireService
             e.printStackTrace();
         }
     }
+
     public static void main(String[] args) {
         MillionaireService service= new MillionaireService();
+
         service.establishConnection();
+
         service.sendDataTest();
     }
 }

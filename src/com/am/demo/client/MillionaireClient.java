@@ -27,30 +27,47 @@ public class MillionaireClient
     public void receiveDataTest(){
         try(BufferedReader reader= new BufferedReader(new InputStreamReader(client.getInputStream()));
             PrintWriter writer= new PrintWriter(client.getOutputStream(),true)){
-            boolean flag= false;
+
             while (true){
 
+                StringBuilder sb= new StringBuilder();
                 String readerData;
                 while (true){
+
                     if((readerData= reader.readLine())!= null)
-                        if(readerData.equals("END")){
+                        if(readerData.equals("END"))
                             break;
+                        else
+                        {
+                            sb.append(readerData);
+                            sb.append("\n");
                         }
-                        if(readerData.equals("Game Over")){
-                            flag= true;
-                            break;
-                        }
-                    System.out.println(readerData);
                 }
-                if (flag)
+                String questionString= sb.toString();
+                System.out.println(questionString);
+                if(questionString.contains("Game Over"))
                     break;
-                else {
+                else
+                {
                     System.out.println("Enter answer number: ");
                     String answer= scanner.nextLine();
                     writer.println(answer);
 
-                    String status= reader.readLine();
-                    System.out.println(status);
+                    try{
+                        Thread.sleep(2000);
+                        String status= reader.readLine();
+                        if(!status.equals("Game Over"))
+                            System.out.println(status);
+                        else {
+                            System.out.println("Game Over");
+                            writer.println("Game Over");
+                            break;
+                        }
+                        Thread.sleep(2000);
+                    }
+                    catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
                 }
             }
 
