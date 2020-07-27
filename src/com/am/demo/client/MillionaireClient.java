@@ -54,15 +54,21 @@ public class MillionaireClient
                     writer.println(answer);
 
                     try{
+                        String status;
                         Thread.sleep(2000);
-                        String status= reader.readLine();
-                        if(!status.equals("Game Over"))
-                            System.out.println(status);
-                        else {
-                            System.out.println("Game Over");
-                            writer.println("Game Over");
-                            break;
+                        while((status= reader.readLine())!= null){
+                            if(!status.equals("Game Over")) {
+                                if(status.equals("END"))
+                                    break;
+                                System.out.println(status);
+                            }
+                            else {
+                                System.out.println("Game Over");
+                                writer.println("Game Over");
+                                break;
+                            }
                         }
+                        System.out.println();
                         Thread.sleep(2000);
                     }
                     catch (InterruptedException e){

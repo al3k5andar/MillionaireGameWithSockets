@@ -65,11 +65,12 @@ public class MillionaireService
                         StringBuilder stringBuilder= new StringBuilder();
                         stringBuilder.append("Congratulate");
                         stringBuilder.append("\n");
-                        stringBuilder.append("You won: ").append(wonPrice);
+                        stringBuilder.append("You won: ").append(wonPrice).append(" ").append("$");
 
                         wonPrice*= 2;
 
                         stringBuilder.append("\n");
+                        stringBuilder.append("END");
                         writer.println(stringBuilder.toString());
                         questionMarkMap.remove(randomNo);
                     }
