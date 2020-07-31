@@ -28,7 +28,8 @@ public class MillionaireClient
         try(BufferedReader reader= new BufferedReader(new InputStreamReader(client.getInputStream()));
             PrintWriter writer= new PrintWriter(client.getOutputStream(),true)){
 
-            while (true){
+            boolean flag= false;
+            while (!flag){
 
                 StringBuilder sb= new StringBuilder();
                 String readerData;
@@ -63,8 +64,9 @@ public class MillionaireClient
                                 System.out.println(status);
                             }
                             else {
-                                System.out.println("Game Over");
+                                System.out.println(status);
                                 writer.println("Game Over");
+                                flag= true;
                                 break;
                             }
                         }

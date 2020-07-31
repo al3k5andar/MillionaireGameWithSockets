@@ -2,3 +2,7 @@
 1.James Watt.Isaak Newton.James Gosling.Nikola Tesla
 2.Elephant.Tiger.Bear.Giraffe
 3.Deer.Rabbit.Elephant.Donkey
+4.Green.Blue.Red.Yellow
+5.Dobrica Cosic.Dositelj Objadovic.Mihailo Lalic.Milos Crnjanski
+6.Drina.Sava.Sana.Lim
+7.Platoon.Aristotle.Socrates.Diogenes

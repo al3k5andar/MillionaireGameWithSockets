@@ -2,3 +2,7 @@
 1->Who is creator of Java?->James Gosling
 2->Which animal is the tallest?->Giraffe
 3->What sort of animal is Walt Disney's Dumbo?->Elephant
+4->Which colour are G letters in Google logo?->Blue
+5->Who is wrote the Seobe novel?->Milos Crnjanski
+6->What river are natural border between Serbia and Bosnia?->Drina
+7->Who is philosopher that lived in a barrel?->Diogenes
